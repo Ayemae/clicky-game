@@ -14,7 +14,7 @@ class ClickCard extends React.Component {
     }
 
     startGame = () => {
-
+        
     }
 
 
