@@ -1,18 +1,20 @@
 import React from "react";
 
 class ClickCard extends React.Component {
-    state = {
-        clicked: false
+    constructor(props) {
+        super(props);
+    }
+
+    wasClicked = () => {
+        this.dataclicked = "true"
     };
-
-
 
     render() {
         return (
-            <div className="click-card">
-                <img src={this.props.img} alt="card" />
+        <div className="click-card" dataid={this.props.id} onClick={() => { this.props.cardWasClicked(this.props.id) }} dataclicked={this.props.clicked.toString()}>
+            <div className="img-holder" style={{ backgroundImage: `url(${this.props.image})` }}>
             </div>
-        )
+        </div>)
     }
 }
 
