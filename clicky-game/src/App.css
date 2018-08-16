@@ -16,11 +16,13 @@ body {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   justify-content: center;
+  justify-items: center;
 }
 
 .click-card {
   width: 240px;
   height: 240px;
+  justify-content: center;
 }
 
 .img-holder {
