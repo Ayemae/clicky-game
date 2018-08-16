@@ -1,0 +1,63 @@
+
+    cardList = [
+        {
+            id: 1,
+            image: bunny,
+            clicked: false
+        },
+        {
+            id: 2,
+            image: duckling,
+            clicked: false
+        },
+        {
+            id: 3,
+            image: fox,
+            clicked: false
+        },
+        {
+            id: 4,
+            image: horse,
+            clicked: false
+        },
+        {
+            id: 5,
+            image: joey,
+            clicked: false
+        },
+        {
+            id: 6,
+            image: kitten,
+            clicked: false
+        },
+        {
+            id: 7,
+            image: lamb,
+            clicked: false
+        },
+        {
+            id: 8,
+            image: otter,
+            clicked: false
+        },
+        {
+            id: 9,
+            image: panda,
+            clicked: false
+        },
+        {
+            "id": 10,
+            "image": "../images/bunny.jpg",
+            "clicked": false
+        },
+        {
+            id: 11,
+            image: seal,
+            clicked: false
+        },
+        {
+            id: 12,
+            image: turtle,
+            clicked: false
+        }
+    ]
