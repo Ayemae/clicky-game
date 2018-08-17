@@ -78,6 +78,10 @@ let cardList = [
         clicked: false
     }
 ]
+
+// let currentOrder = [];
+
+
 class GameSpace extends React.Component {
     cardList = [
         {
@@ -126,9 +130,9 @@ class GameSpace extends React.Component {
             clicked: false
         },
         {
-            "id": 10,
-            "image": puppy,
-            "clicked": false
+            id: 10,
+            image: puppy,
+            clicked: false
         },
         {
             id: 11,
@@ -141,27 +145,31 @@ class GameSpace extends React.Component {
             clicked: false
         }
     ]
+    // currentOrder = [];
+    
     state = {
         cardList,
-        clicked: false
+        clicked: false,
+        score: 0,
+        losses: 0
     }
 
+
     componentDidMount() {
+        this.cardList = this.shuffleCards(cardList);
+        console.log("cardlist " + cardList)
+        console.log("??? " + this.currentOrder)
         this.restartGame();
     }
+
+    componentDidUpdate(cardList, clicked) {
+        this.cardList = this.shuffleCards(cardList);
+    }
+    
 
     restartGame = () => {
         // setState({score: 0})
     }
-
-    // cardWasClicked = () => {
-    //     this.setState(state => ({
-    //         clicked: state.clicked
-    //     }))
-    //     this.cardList = this.shuffleCards(this.cardList);
-    //     console.log(this.state.clicked)
-    // };
-
 
     shuffleCards = (arr) => {
         let curIndex = arr.length, tempVal, randomCard;
@@ -173,7 +181,6 @@ class GameSpace extends React.Component {
             arr[curIndex] = arr[randomCard];
             arr[randomCard] = tempVal;
         }
-        return arr;
     }
 
     handleClick = id => {
@@ -190,11 +197,10 @@ class GameSpace extends React.Component {
             }
             return newItem;
 
-        });
+        },
+    this.shuffleCards(cardList)
+        );
 
-        // if (event.target.dataclicked === "true") {
-        //     console.log(">:(")
-        // }
     }
 
 
