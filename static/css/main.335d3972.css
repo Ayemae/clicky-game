@@ -1,0 +1,2 @@
+body{margin:0;padding:0;font-family:sans-serif}*{-webkit-box-sizing:border-box;box-sizing:border-box}img{max-width:100%}.game-space{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-column-gap:10px;grid-row-gap:10px;justify-items:center}.click-card,.game-space{-ms-flex-pack:center;justify-content:center}.click-card{width:240px;height:240px}.img-holder{width:100%;height:100%;background-size:cover;background-position:50%}
+/*# sourceMappingURL=main.335d3972.css.map*/
