@@ -16,7 +16,7 @@ import turtle from '../images/turtle.jpg'; //12
 let score = 0;
 let loses = 0;
 
-let cardList = [
+var cardList = [
     {
         id: 1,
         image: bunny,
@@ -79,74 +79,20 @@ let cardList = [
     }
 ]
 
+function Shuffle(o) {
+    for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
+
+var cardList = Shuffle(cardList);
+
 // let currentOrder = [];
 
 
 class GameSpace extends React.Component {
-    cardList = [
-        {
-            id: 1,
-            image: bunny,
-            clicked: false
-        },
-        {
-            id: 2,
-            image: duckling,
-            clicked: false
-        },
-        {
-            id: 3,
-            image: fox,
-            clicked: false
-        },
-        {
-            id: 4,
-            image: horse,
-            clicked: false
-        },
-        {
-            id: 5,
-            image: joey,
-            clicked: false
-        },
-        {
-            id: 6,
-            image: kitten,
-            clicked: false
-        },
-        {
-            id: 7,
-            image: lamb,
-            clicked: false
-        },
-        {
-            id: 8,
-            image: otter,
-            clicked: false
-        },
-        {
-            id: 9,
-            image: panda,
-            clicked: false
-        },
-        {
-            id: 10,
-            image: puppy,
-            clicked: false
-        },
-        {
-            id: 11,
-            image: seal,
-            clicked: false
-        },
-        {
-            id: 12,
-            image: turtle,
-            clicked: false
-        }
-    ]
+
     // currentOrder = [];
-    
+
     state = {
         cardList,
         clicked: false,
@@ -155,35 +101,18 @@ class GameSpace extends React.Component {
     }
 
 
+    Shuffle = (o) => {
+        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    };
+
     componentDidMount() {
-        this.cardList = this.shuffleCards(cardList);
-        console.log("cardlist " + cardList)
-        console.log("??? " + this.currentOrder)
-        this.restartGame();
+
     }
 
-    componentDidUpdate(cardList, clicked) {
-        this.cardList = this.shuffleCards(cardList);
-    }
-    
-
-    restartGame = () => {
-        // setState({score: 0})
-    }
-
-    shuffleCards = (arr) => {
-        let curIndex = arr.length, tempVal, randomCard;
-        while (0 !== curIndex) {
-            randomCard = Math.floor(Math.random * curIndex);
-            curIndex -= 1;
-
-            tempVal = arr[curIndex];
-            arr[curIndex] = arr[randomCard];
-            arr[randomCard] = tempVal;
-        }
-    }
 
     handleClick = id => {
+        this.Shuffle(cardList)
         let guessedCorrectly = false;
         const newData = this.state.cardList.map(item => {
             const newItem = { ...item };
@@ -193,12 +122,11 @@ class GameSpace extends React.Component {
                     newItem.clicked = true;
                     guessedCorrectly = true;
                 }
-                console.log(newItem.clicked)
+                console.log("true" + newItem.clicked)
             }
             return newItem;
 
         },
-    this.shuffleCards(cardList)
         );
 
     }
@@ -207,7 +135,7 @@ class GameSpace extends React.Component {
     render() {
         return (
             <div className="game-space">
-                {this.cardList.map(card => (
+                {cardList.map(card => (
                     <ClickCard
                         image={card.image}
                         id={card.id}
