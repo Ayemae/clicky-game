@@ -116,13 +116,12 @@ class GameSpace extends React.Component {
         let guessedCorrectly = false;
         const newData = this.state.cardList.map(item => {
             const newItem = { ...item };
-            console.log(newItem.clicked)
             if (newItem.id === id) {
                 if (!newItem.clicked) {
                     newItem.clicked = true;
                     guessedCorrectly = true;
                 }
-                console.log("true" + newItem.clicked)
+                console.log("Is clicked: " + newItem.clicked)
             }
             return newItem;
 
