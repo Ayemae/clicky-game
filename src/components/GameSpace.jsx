@@ -112,7 +112,6 @@ class GameSpace extends React.Component {
 
 
     handleClick = id => {
-        this.Shuffle(cardList)
         let guessedCorrectly = false;
         const newData = this.state.cardList.map(item => {
             const newItem = { ...item };
@@ -124,10 +123,12 @@ class GameSpace extends React.Component {
                 console.log("Is clicked: " + newItem.clicked)
             }
             return newItem;
-
-        },
-        );
-
+ 
+        }
+        );  guessedCorrectly
+        ? this.CorrectGuess(newData)
+        : this.IncorrectGuess(newData);
+ 
     }
 
 
