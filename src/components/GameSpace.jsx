@@ -80,7 +80,9 @@ var cardList = [
 ]
 
 function Shuffle(o) {
+    
     for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    console.log(o);
     return o;
 };
 
@@ -102,9 +104,12 @@ class GameSpace extends React.Component {
 
 
     Shuffle = (o) => {
+        console.log("HI")
+        console.log(o)
         for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
     };
+    
 
     componentDidMount() {
 
@@ -112,7 +117,7 @@ class GameSpace extends React.Component {
 
 
     handleClick = id => {
-        this.Shuffle(cardList)
+        
         let guessedCorrectly = false;
         const newData = this.state.cardList.map(item => {
             const newItem = { ...item };
@@ -122,9 +127,11 @@ class GameSpace extends React.Component {
                     guessedCorrectly = true;
                 }
                 console.log("Is clicked: " + newItem.clicked)
+                this.setState.cardList = this.Shuffle(cardList);
             }
             return newItem;
-
+            
+           console.log(this.state.cardList)
         },
         );
 
